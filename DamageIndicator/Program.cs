@@ -105,10 +105,8 @@ namespace DamageIndicator
         private static void Drawing_OnDraw(EventArgs args)
         {
 
-            if (Player.IsDead != true)
+            if (!Player.IsDead)
             {
-                _percentpenetrationarmor = ((1 - Player.PercentArmorPenetrationMod) + 1);
-                _percentpenetrationmagic = ((1 - Player.PercentMagicPenetrationMod) + 1);
                 DamageIndicator.DamageToUnit = GetComboDamage;
                 DamageIndicator.Enabled = true;
                 DamageIndicator.Fill = drawFill.GetValue<Circle>().Active;
