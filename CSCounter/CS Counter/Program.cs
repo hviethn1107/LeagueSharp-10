@@ -116,27 +116,10 @@ namespace CS_Counter
 
                     if (!Init.Advanced.GetValue<bool>())
                     {
+
                         if (!Init.Advanced_box.GetValue<bool>())
                         {
-                            Line.Begin();
-                            Line.Draw(new[] {new Vector2(pos.X, pos.Y - 2), new Vector2(pos.X + 50, pos.Y - 2)},
-                                new ColorBGRA(255, 255, 255, 255));
-                            Line.End();
-
-                            Line.Begin();
-                            Line.Draw(new[] {new Vector2(pos.X, pos.Y + 14), new Vector2(pos.X + 50, pos.Y + 14)},
-                                new ColorBGRA(255, 255, 255, 255));
-                            Line.End();
-
-                            Line.Begin();
-                            Line.Draw(new[] {new Vector2(pos.X, pos.Y - 2), new Vector2(pos.X, pos.Y + 14)},
-                                new ColorBGRA(255, 255, 255, 255));
-                            Line.End();
-
-                            Line.Begin();
-                            Line.Draw(new[] {new Vector2(pos.X + 50, pos.Y - 2), new Vector2(pos.X + 50, pos.Y + 14)},
-                                new ColorBGRA(255, 255, 255, 255));
-                            Line.End();
+                            DrawBoxes(pos.X, pos.Y);
                         }
 
                         Text.text = Percent + " %";
@@ -144,30 +127,12 @@ namespace CS_Counter
                     }
                     else
                     {
+
                         if (!Init.Advanced_box.GetValue<bool>())
                         {
-                            Line.Begin();
-                            Line.Draw(new[] {new Vector2(pos.X, pos.Y - 2), new Vector2(pos.X + 100, pos.Y - 2)},
-                                new ColorBGRA(255, 255, 255, 255));
-                            Line.End();
-
-
-                            Line.Begin();
-                            Line.Draw(new[] {new Vector2(pos.X, pos.Y + 14), new Vector2(pos.X + 100, pos.Y + 14)},
-                                new ColorBGRA(255, 255, 255, 255));
-                            Line.End();
-
-                            Line.Begin();
-                            Line.Draw(new[] {new Vector2(pos.X, pos.Y - 2), new Vector2(pos.X, pos.Y + 14)},
-                                new ColorBGRA(255, 255, 255, 255));
-                            Line.End();
-
-                            Line.Begin();
-                            Line.Draw(
-                                new[] {new Vector2(pos.X + 100, pos.Y - 2), new Vector2(pos.X + 100, pos.Y + 14)},
-                                new ColorBGRA(255, 255, 255, 255));
-                            Line.End();
+                            DrawBoxes(pos.X, pos.Y);
                         }
+
                         Text.text = Percent + " %" + " |  " + cs + " / " + mingesamt;
                     }
 
@@ -179,25 +144,7 @@ namespace CS_Counter
 
                 if (!Init.Advanced_box.GetValue<bool>())
                 {
-                    Line.Begin();
-                    Line.Draw(new[] {new Vector2(pos.X, pos.Y - 2), new Vector2(pos.X + 100, pos.Y - 2)},
-                        new ColorBGRA(255, 255, 255, 255));
-                    Line.End();
-
-                    Line.Begin();
-                    Line.Draw(new[] {new Vector2(pos.X, pos.Y + 14), new Vector2(pos.X + 100, pos.Y + 14)},
-                        new ColorBGRA(255, 255, 255, 255));
-                    Line.End();
-
-                    Line.Begin();
-                    Line.Draw(new[] {new Vector2(pos.X, pos.Y - 2), new Vector2(pos.X, pos.Y + 14)},
-                        new ColorBGRA(255, 255, 255, 255));
-                    Line.End();
-
-                    Line.Begin();
-                    Line.Draw(new[] {new Vector2(pos.X + 100, pos.Y - 2), new Vector2(pos.X + 100, pos.Y + 14)},
-                        new ColorBGRA(255, 255, 255, 255));
-                    Line.End();
+                    DrawBoxes(pos.X, pos.Y);
                 }
 
                 Text.X = (int)pos.X;
@@ -205,11 +152,34 @@ namespace CS_Counter
 
                 Text.Y = (int)pos.Y;
                 Text.Color = new ColorBGRA(red: 255, green: 255, blue: 255, alpha: 255);
-                Text.text = "CS Count: " + mingesamt;
+                Text.text = "CS Count: " + cs;
                 Text.OnEndScene();
                 
             }
 
+        }
+
+        internal static void DrawBoxes(float x, float y)
+        {
+            Line.Begin();
+            Line.Draw(new[] { new Vector2(x, y - 2), new Vector2(x + 100, y - 2) },
+                new ColorBGRA(255, 255, 255, 255));
+            Line.End();
+
+            Line.Begin();
+            Line.Draw(new[] { new Vector2(x, y + 14), new Vector2(x + 100, y + 14) },
+                new ColorBGRA(255, 255, 255, 255));
+            Line.End();
+
+            Line.Begin();
+            Line.Draw(new[] { new Vector2(x, y - 2), new Vector2(x, y + 14) },
+                new ColorBGRA(255, 255, 255, 255));
+            Line.End();
+
+            Line.Begin();
+            Line.Draw(new[] { new Vector2(x + 100, y - 2), new Vector2(x + 100, y + 14) },
+                new ColorBGRA(255, 255, 255, 255));
+            Line.End();
         }
 
     }
