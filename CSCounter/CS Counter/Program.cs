@@ -58,8 +58,6 @@ namespace CS_Counter
             Notifications.AddNotification("CS Counter loaded.", 100);
 
             _menu2 = new Menu("CS Counter", "menu2", true);
-            //var drawings2 = new Menu("Drawings", "drawings2");
-            //_menu2.AddSubMenu(drawings2);
 
             _line = new Line(Drawing.Direct3DDevice);
 
