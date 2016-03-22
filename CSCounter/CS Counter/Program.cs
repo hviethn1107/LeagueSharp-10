@@ -46,7 +46,7 @@ namespace CS_Counter
 
         private static void Game_OnGameLoad(EventArgs args)
         {
-            if (Game.MapId != GameMapId.SummonersRift) { return; }
+            //if (Game.MapId != GameMapId.CrystalScar) { return; }
 
             Init.PrepareMenu();
 
@@ -77,8 +77,20 @@ namespace CS_Counter
             foreach (var hero in ObjectManager.Get<Obj_AI_Hero>())
             {
 
+                int mingesamt = 0;
 
-                int mingesamt = (int)MinCount / 3 + Minionsgesamt;
+                if (Game.MapId == GameMapId.HowlingAbyss)
+                {
+                    mingesamt = (int) MinCount + Minionsgesamt;
+                }
+                else if (Game.MapId == GameMapId.TwistedTreeline)
+                {
+                    mingesamt = (int)MinCount / 2 + Minionsgesamt;
+                }
+                else if (Game.MapId == GameMapId.SummonersRift)
+                {
+                    mingesamt = (int) MinCount / 3 + Minionsgesamt;
+                }
 
                 if (hero.IsDead | !hero.IsVisible | !Init.Menuenable2.GetValue<bool>() |
                     (hero.IsAlly && !Init.Menuenable4.GetValue<bool>() && !hero.IsMe) | (hero.IsMe && !Init.Menuenable3.GetValue<bool>()))
