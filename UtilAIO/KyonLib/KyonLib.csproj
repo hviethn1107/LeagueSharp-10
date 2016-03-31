@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>01a44b81-c7b0-4f68-adbc-8216298051b4</ProjectGuid>
+    <ProjectGuid>58f7cb1d-aa3b-4a5b-8176-b3b1089cbc9f</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>KyonLib</RootNamespace>
